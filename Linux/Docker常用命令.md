@@ -62,6 +62,9 @@ docker rmi nginx:alpine
 
 ```bash
 docker run -d --name 容器名称 -p 宿主机端口:容器内的端口 镜像名称:tag
+宿主机端口:Linux虚拟机服务器的端口192.168.150.101:80中的80
+容器内的端口:如nginx容器的端口 容器IP:80中的80
+两个端口映射宿主机端口找对应容器的端口
 docker run -d --name nginx -p 80:80 nginx:alpine
 ```
 
@@ -144,6 +147,7 @@ docker rm -f 容器名
 创建容器并挂载数据卷：
 
 ```bash
+创建具有数据卷的容器需先删掉以前的容易后重新run新容器
 docker run -d --name 容器名称 -p 宿主机端口:容器内端口 -v 数据卷名称:容器内的文件夹 镜像名称:tag
 docker run -d --name nginx -p 80:80 -v html:/usr/share/nginx/html nginx:alpine
 ```
